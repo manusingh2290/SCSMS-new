@@ -912,6 +912,9 @@ app.get("/citizen/activity/:id", (req, res) => {
 
 
 /* ================= SERVER ================= */
-server.listen(3000, () => {
-  console.log("🚀 Server + Socket.IO running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`🚀 Server + Socket.IO running on port ${PORT}`);
 });
+
