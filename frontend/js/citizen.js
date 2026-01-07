@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("photo", photoInput.files[0]);
 
     try {
-      const res = await fetch("http://localhost:3000/ai/suggest-title", {
+      const res = await fetch("https://scsms-backend.onrender.com/ai/suggest-title", {
         method: "POST",
         body: formData
       });
@@ -174,7 +174,7 @@ async function submitComplaint() {
     formData.append("photo", document.getElementById("photo").files[0]);
   }
 
-  const res = await fetch("http://localhost:3000/complaint", {
+  const res = await fetch("https://scsms-backend.onrender.com/complaint", {
     method: "POST",
     body: formData
   });
@@ -204,7 +204,7 @@ async function submitComplaint() {
 /* ================= NOTIFICATIONS ================= */
 async function loadNotifications() {
   const res = await fetch(
-    `http://localhost:3000/notifications/${user.role}/${user.name}`
+    `https://scsms-backend.onrender.com/notifications/${user.role}/${user.name}`
   );
   const data = await res.json();
   notify.innerHTML = "";
@@ -274,7 +274,7 @@ async function loadChatHistory() {
   const room = `citizen_${user.id}`;
 
   const res = await fetch(
-    `http://localhost:3000/chat-history/${room}`
+    `https://scsms-backend.onrender.com/chat-history/${room}`
   );
 
   const history = await res.json();
@@ -363,7 +363,7 @@ socket.on("receive_message", data => {
 
 async function loadStats() {
   const res = await fetch(
-    `http://localhost:3000/citizen/stats/${user.id}`
+    `https://scsms-backend.onrender.com/citizen/stats/${user.id}`
   );
   const s = await res.json();
 
@@ -380,7 +380,7 @@ async function loadStats() {
 
 
 async function loadCommunityIssues() {
-  const res = await fetch("http://localhost:3000/complaints-map");
+  const res = await fetch("https://scsms-backend.onrender.com/complaints-map");
   const issues = await res.json();
 
   issues.forEach(issue => {
@@ -403,7 +403,7 @@ loadCommunityIssues();
 
 async function loadRecentActivity() {
   const res = await fetch(
-    `http://localhost:3000/citizen/activity/${user.id}`
+    `https://scsms-backend.onrender.com/citizen/activity/${user.id}`
   );
   const data = await res.json();
 
@@ -446,7 +446,7 @@ function callNumber(number) {
 
 /* ================= LOAD ANNOUNCEMENTS ================= */
 async function loadAnnouncements() {
-  const res = await fetch("http://localhost:3000/announcements");
+  const res = await fetch("https://scsms-backend.onrender.com/announcements");
   const data = await res.json();
 
   const list = document.getElementById("announcements");
@@ -503,7 +503,7 @@ loadAnnouncements();
 async function loadCitizenStats() {
   try {
     const res = await fetch(
-      `http://localhost:3000/citizen/stats/${user.id}`
+      `https://scsms-backend.onrender.com/citizen/stats/${user.id}`
     );
 
     const stats = await res.json();

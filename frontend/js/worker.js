@@ -8,7 +8,7 @@ if (user.role !== "worker") window.location.href = "login.html";
 /* ================= LOAD NOTIFICATIONS ================= */
 async function loadNotifications() {
   const res = await fetch(
-    `http://localhost:3000/notifications/${user.role}/${user.name}`
+    `https://scsms-backend.onrender.com/notifications/${user.role}/${user.name}`
   );
   const data = await res.json();
 
@@ -54,7 +54,7 @@ function closeNotifications() {
 /* ================= LOAD TASKS ================= */
 async function loadTasks() {
   const res = await fetch(
-    "http://localhost:3000/worker/" + user.name
+    "https://scsms-backend.onrender.com/worker/" + user.name
   );
   const data = await res.json();
 
@@ -101,7 +101,7 @@ async function loadTasks() {
           ${c.completion_photo ? `
             <b>Completion Proof:</b><br>
             <img 
-              src="http://localhost:3000/uploads/${c.completion_photo}" 
+              src="https://scsms-backend.onrender.com/uploads/${c.completion_photo}" 
               width="120"
               style="border:1px solid #4CAF50"
             ><br>
@@ -146,7 +146,7 @@ async function update() {
   }
 
   const res = await fetch(
-    "http://localhost:3000/complaint/" + id,
+    "https://scsms-backend.onrender.com/complaint/" + id,
     {
       method: "PUT",
       body: formData

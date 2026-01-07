@@ -8,7 +8,7 @@ async function register() {
     return;
   }
 
-  const res = await fetch("http://localhost:3000/register", {
+  const res = await fetch("https://scsms-backend.onrender.com/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -42,7 +42,7 @@ document.addEventListener("keydown", (e) => {
 async function sendEmailOTP() {
   const email = document.getElementById("email").value;
 
-  const res = await fetch("http://localhost:3000/auth/send-email-otp", {
+  const res = await fetch("https://scsms-backend.onrender.com/auth/send-email-otp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email })
@@ -85,7 +85,7 @@ async function verifyEmailOTP() {
   }
 
   // 1️⃣ Verify OTP
-  const verifyRes = await fetch("http://localhost:3000/auth/verify-email-otp", {
+  const verifyRes = await fetch("https://scsms-backend.onrender.com/auth/verify-email-otp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, otp })
@@ -95,7 +95,7 @@ async function verifyEmailOTP() {
   if (!verifyRes.ok) return alert(verifyData.error);
 
   // 2️⃣ Register citizen
-  const registerRes = await fetch("http://localhost:3000/register-citizen", {
+  const registerRes = await fetch("https://scsms-backend.onrender.com/register-citizen", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

@@ -8,7 +8,7 @@ if (user.role !== "citizen") window.location.href = "login.html";
 /* ================= LOAD COMPLAINTS ================= */
 async function loadComplaints() {
   const res = await fetch(
-    "http://localhost:3000/complaints-by-user/" + user.id
+    "https://scsms-backend.onrender.com/complaints-by-user/" + user.id
   );
   const data = await res.json();
 
@@ -40,7 +40,7 @@ async function loadComplaints() {
       ${c.photo ? `
         <div>
           <small><b>Image Proof:</b></small><br>
-          <img src="http://localhost:3000/uploads/${c.photo}" width="140">
+          <img src="https://scsms-backend.onrender.com/uploads/${c.photo}" width="140">
         </div>
       ` : ""}<br>
         </li>
@@ -57,7 +57,7 @@ async function loadComplaints() {
           ${c.completion_photo ? `
             <b>Completion Proof:</b><br>
             <img 
-              src="http://localhost:3000/uploads/${c.completion_photo}" 
+              src="https://scsms-backend.onrender.com/uploads/${c.completion_photo}" 
               width="150"
               style="border:1px solid #4CAF50"
             ><br>

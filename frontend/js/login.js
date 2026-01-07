@@ -42,7 +42,7 @@ async function login() {
     return;
   }
 
-  const res = await fetch("http://localhost:3000/login", {
+  const res = await fetch("https://scsms-backend.onrender.com/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -72,7 +72,7 @@ async function login() {
 
 
 async function loadLoginAnnouncements() {
-  const res = await fetch("http://localhost:3000/announcements");
+  const res = await fetch("https://scsms-backend.onrender.com/announcements");
   const data = await res.json();
 
   const emergencyOnly = data.filter(a => a.type === "Emergency");

@@ -32,7 +32,7 @@ if (user.role === "citizen") {
 async function saveProfile() {
   const address = document.getElementById("paddress").value.trim();
 
-  const res = await fetch("http://localhost:3000/profile/update", {
+  const res = await fetch("https://scsms-backend.onrender.com/profile/update", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

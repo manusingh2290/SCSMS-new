@@ -7,7 +7,7 @@ if (user.role !== "admin") window.location.href = "login.html";
 
 /* ================= LOAD WORKERS ================= */
 async function loadWorkers() {
-  const res = await fetch("http://localhost:3000/workers");
+  const res = await fetch("https://scsms-backend.onrender.com/workers");
   const workers = await res.json();
 
   const select = document.getElementById("workerSelect");
@@ -31,7 +31,7 @@ async function loadActivity() {
   }
 
   const res = await fetch(
-    "http://localhost:3000/admin/worker-activity/" + worker
+    "https://scsms-backend.onrender.com/admin/worker-activity/" + worker
   );
   const data = await res.json();
 
@@ -70,7 +70,7 @@ async function loadActivity() {
 
         ${c.completion_photo ? `
           <img 
-            src="http://localhost:3000/uploads/${c.completion_photo}" 
+            src="https://scsms-backend.onrender.com/uploads/${c.completion_photo}" 
             width="120"
           ><br>
         ` : ""}

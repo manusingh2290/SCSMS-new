@@ -8,7 +8,7 @@ if (user.role !== "admin") window.location.href = "login.html";
 /* ================= NOTIFICATIONS ================= */
 async function loadNotifications() {
   const res = await fetch(
-    `http://localhost:3000/notifications/${user.role}/${user.name}`
+    `https://scsms-backend.onrender.com/notifications/${user.role}/${user.name}`
   );
   const data = await res.json();
 
@@ -53,7 +53,7 @@ function closeNotifications() {
 
 /* ================= LOAD COMPLAINTS ================= */
 async function loadComplaints() {
-  const res = await fetch("http://localhost:3000/complaints");
+  const res = await fetch("https://scsms-backend.onrender.com/complaints");
   const data = await res.json();
 
   const active = document.getElementById("active");
@@ -83,7 +83,7 @@ async function loadComplaints() {
           ` : ""}
 
           ${c.photo ? `
-            <img src="http://localhost:3000/uploads/${c.photo}" width="120"><br>
+            <img src="https://scsms-backend.onrender.com/uploads/${c.photo}" width="120"><br>
           ` : ""}
         </li>
         <hr>
@@ -111,14 +111,14 @@ async function loadComplaints() {
       ${c.photo ? `
         <div>
           <small><b>Complaint Image</b></small><br>
-          <img src="http://localhost:3000/uploads/${c.photo}" width="140">
+          <img src="https://scsms-backend.onrender.com/uploads/${c.photo}" width="140">
         </div>
       ` : ""}
 
       ${c.completion_photo ? `
         <div>
           <small><b>Resolved Image</b></small><br>
-          <img src="http://localhost:3000/uploads/${c.completion_photo}" width="140">
+          <img src="https://scsms-backend.onrender.com/uploads/${c.completion_photo}" width="140">
         </div>
       ` : ""}
     </div>
@@ -149,7 +149,7 @@ function toggleHistory() {
 
 /* ================= LOAD WORKERS (ACTIVE ONLY) ================= */
 async function loadWorkers() {
-  const res = await fetch("http://localhost:3000/workers");
+  const res = await fetch("https://scsms-backend.onrender.com/workers");
   const workers = await res.json();
 
   const select = document.getElementById("workerSelect");
@@ -175,7 +175,7 @@ async function assign() {
     return;
   }
 
-  const res = await fetch("http://localhost:3000/assign", {
+  const res = await fetch("https://scsms-backend.onrender.com/assign", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ complaint_id: cid, worker_name: worker })
@@ -199,7 +199,7 @@ async function addWorker() {
     return;
   }
 
-  const res = await fetch("http://localhost:3000/admin/add-worker", {
+  const res = await fetch("https://scsms-backend.onrender.com/admin/add-worker", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password })
@@ -237,7 +237,7 @@ async function removeWorker(id) {
   if (!confirm("Remove this worker?")) return;
 
   const res = await fetch(
-    `http://localhost:3000/admin/remove-worker/${id}`,
+    `https://scsms-backend.onrender.com/admin/remove-worker/${id}`,
     { method: "PUT" }
   );
 
@@ -283,7 +283,7 @@ let activeRoom = "";
 /* ===== LOAD EXISTING ACTIVE CHATS ON PAGE LOAD ===== */
 async function loadActiveChats() {
   try {
-    const res = await fetch("http://localhost:3000/admin/active-chats");
+    const res = await fetch("https://scsms-backend.onrender.com/admin/active-chats");
     const rooms = await res.json();
 
     const list = document.getElementById("active-chats");
@@ -348,7 +348,7 @@ async function selectCitizen(room) {
 
 /* ===== LOAD CHAT HISTORY FROM DB ===== */
 async function loadAdminHistory(room) {
-  const res = await fetch(`http://localhost:3000/chat-history/${room}`);
+  const res = await fetch(`https://scsms-backend.onrender.com/chat-history/${room}`);
   const history = await res.json();
 
   const box = document.getElementById("admin-chat-messages");
@@ -436,7 +436,7 @@ async function postAnnouncement() {
     return;
   }
 
-  const res = await fetch("http://localhost:3000/admin/announcement", {
+  const res = await fetch("https://scsms-backend.onrender.com/admin/announcement", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title, message, type })
