@@ -299,7 +299,7 @@ app.post("/ai/suggest-title", aiLimiter, upload.single("photo"), (req, res) => {
   console.log("🤖 Running Script:", scriptPath);
 
   execFile(
-    "python", // Or "python3" depending on your system
+    "python3", // Or "python3" depending on your system
     [scriptPath, imagePath],
     (err, stdout, stderr) => {
       if (err) {
