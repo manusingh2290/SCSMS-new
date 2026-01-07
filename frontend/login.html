@@ -1,0 +1,99 @@
+<!-- FAVICON -->
+<link rel="icon" href="logo 2.png" type="image/x-icon">
+<link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+<!-- APPLE / MOBILE -->
+<link rel="apple-touch-icon" href="logo 2.png">
+
+<!-- ANDROID / PWA -->
+<link rel="icon" sizes="192x192" href="logo 2.png">
+<link rel="icon" sizes="512x512" href="logo 2.png">
+
+
+
+<!-- LOGO -->
+<div class="main-wrapper">
+  <!-- LEFT LOGO SECTION -->
+  <div class="central-container">
+    <div class="logo-section">
+      <div class="logo-circle-wrapper">
+        <img src="logo 2.png" alt="SCSMS Logo">
+      </div>
+      <div class="logo-text">SCSMS</div>
+      <div class="logo-subtitle">Smart City Service Management System</div>
+      <p class="typing-text">Your City. Your Voice.</p>
+    </div>
+
+    <div class="login-container">
+      <p><b>Select your role</b></p>
+
+      <!-- ROLE ICONS -->
+      <div class="role-box">
+        <div class="role-card" onclick="selectRole('citizen', this)">
+          <span class="icon">👤</span>
+          <p>Citizen</p>
+        </div>
+
+        <div class="role-card" onclick="selectRole('worker', this)">
+          <span class="icon">👷</span>
+          <p>Worker</p>
+        </div>
+
+        <div class="role-card" onclick="selectRole('admin', this)">
+          <span class="icon">🛡️</span>
+          <p>Admin</p>
+        </div>
+
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginBox" style="display:none;">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="registerLink" style="display:none;">
+          New user? <a href="register.html">Register here</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDE PANELS ON SCREEN EDGES -->
+  <div class="side-panel left-panel">
+    <h3>🚨 Emergency Alerts</h3>
+    <ul id="loginAnnouncements"></ul>
+  </div>
+
+
+  <div class="side-panel right-panel">
+    <h3>📞 Help Directory</h3>
+    <ul class="emergency-list">
+      <li><b>National:</b> <a href="tel:112">112</a></li>
+      <li><b>Police:</b> <a href="tel:100">100</a></li>
+      <li><b>Fire:</b> <a href="tel:101">101</a></li>
+      <li><b>Ambulance:</b> <a href="tel:102">102</a></li>
+      <li><b>Women Helpline:</b> <a href="tel:1091">1091</a></li>
+      <hr>
+      <li><b>Railway:</b> <a href="tel:139">139</a></li>
+      <li><b>Highway:</b> <a href="tel:1033">1033</a></li>
+      <li><b>Blood Bank:</b> <a href="tel:1910">1910</a></li>
+      <li><b>Aadhar:</b> <a href="tel:1947">1947</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer class="footer">
+  <a href="about.html">About Us</a> |
+  <a href="services.html">Services</a> |
+  <a href="faq.html">FAQ</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="security.html">Security</a> |
+  <a href="how-it-works.html">How it Works</a>
+</footer>
+
+
+<script src="js/login.js"></script>
+<link rel="stylesheet" href="css/login.css">

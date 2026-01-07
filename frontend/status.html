@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SCSMS - My Complaints</title>
+    <link rel="stylesheet" href="css/status.css">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="logo 2.png" type="image/x-icon">
+    <link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+    <!-- APPLE / MOBILE -->
+    <link rel="apple-touch-icon" href="logo 2.png">
+
+    <!-- ANDROID / PWA -->
+    <link rel="icon" sizes="192x192" href="logo 2.png">
+    <link rel="icon" sizes="512x512" href="logo 2.png">
+
+</head>
+
+<body>
+    <div class="floating-particles"></div>
+
+    <div class="main-container">
+        <div class="header">
+            <h2>My Complaints</h2>
+        </div>
+
+        <div class="status-cards">
+            <div class="status-card active-section">
+                <h3 data-icon="🟡">Active Complaints</h3>
+                <ul id="active"></ul>
+            </div>
+
+            <h3 style="cursor:pointer;" onclick="toggleHistory()">
+                🟢 Complaint History (Resolved)
+                <span id="arrow">▼</span>
+            </h3>
+            <ul id="history" style="display:none;"></ul>
+        </div>
+
+        <div class="button-group">
+            <button onclick="goBack()">⬅ Back to Dashboard</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="js/status.js"></script>
+</body>
+
+</html>

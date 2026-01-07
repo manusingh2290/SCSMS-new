@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="css/profile.css">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="logo 2.png" type="image/x-icon">
+  <link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+  <!-- APPLE / MOBILE -->
+  <link rel="apple-touch-icon" href="logo 2.png">
+
+  <!-- ANDROID / PWA -->
+  <link rel="icon" sizes="192x192" href="logo 2.png">
+  <link rel="icon" sizes="512x512" href="logo 2.png">
+
+</head>
+
+<body>
+
+  <h2>My Profile</h2>
+
+  <div class="form-container">
+    <div class="field-group">
+      <label>Name</label>
+      <input id="pname" disabled>
+    </div>
+
+    <div class="field-group">
+      <label>Email</label>
+      <input id="pemail" disabled>
+    </div>
+
+    <!-- Address ONLY for citizen -->
+    <div id="addressSection" style="display:none;">
+      <div class="field-group">
+        <label>Address</label>
+        <textarea id="paddress" placeholder="Enter your address"></textarea>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="saveBtn" disabled onclick="saveProfile()">Save Changes</button>
+      <button onclick="goBack()">⬅ Back</button>
+    </div>
+  </div>
+
+  <script src="js/profile.js"></script>
+</body>
+
+</html>

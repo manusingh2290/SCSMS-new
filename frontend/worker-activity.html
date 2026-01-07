@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Worker Activity Tracking</title>
+  <link rel="stylesheet" href="css/worker-activity.css">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="logo 2.png" type="image/x-icon">
+  <link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+  <!-- APPLE / MOBILE -->
+  <link rel="apple-touch-icon" href="logo 2.png">
+
+  <!-- ANDROID / PWA -->
+  <link rel="icon" sizes="192x192" href="logo 2.png">
+  <link rel="icon" sizes="512x512" href="logo 2.png">
+
+</head>
+
+<body>
+
+  <h2>👷 Worker Activity Tracking</h2>
+
+  <select id="workerSelect">
+    <option value="">Select Worker</option>
+  </select>
+
+  <button onclick="loadActivity()">View Activity</button>
+
+  <hr>
+
+  <h3>🟡 Assigned</h3>
+  <ul id="assigned"></ul>
+
+  <h3>🔵 In Progress</h3>
+  <ul id="progress"></ul>
+
+  <h3>🟢 Resolved</h3>
+  <ul id="resolved"></ul>
+
+  <br>
+  <button onclick="goBack()">⬅ Back to Admin Dashboard</button>
+  <button onclick="logout()">Logout</button>
+
+  <script src="js/worker-activity.js"></script>
+
+</body>
+
+</html>

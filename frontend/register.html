@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SCSMS Registration</title>
+  <link rel="stylesheet" href="css/register.css">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="logo 2.png" type="image/x-icon">
+  <link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+  <!-- APPLE / MOBILE -->
+  <link rel="apple-touch-icon" href="logo 2.png">
+
+  <!-- ANDROID / PWA -->
+  <link rel="icon" sizes="192x192" href="logo 2.png">
+  <link rel="icon" sizes="512x512" href="logo 2.png">
+</head>
+
+<body>
+
+  <div class="register-container">
+    <h2>Citizen Registration</h2>
+
+    <input id="name" placeholder="Full Name">
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="sendEmailOTP()">Send OTP</button>
+
+    <!-- OTP SECTION (HIDDEN INITIALLY) -->
+    <div id="otpSection" style="display:none; margin-top:15px;">
+      <label>🔐 Enter OTP</label>
+
+      <div class="otp-container">
+        <input type="text" maxlength="1" class="otp-box" />
+        <input type="text" maxlength="1" class="otp-box" />
+        <input type="text" maxlength="1" class="otp-box" />
+        <input type="text" maxlength="1" class="otp-box" />
+        <input type="text" maxlength="1" class="otp-box" />
+        <input type="text" maxlength="1" class="otp-box" />
+      </div>
+
+      <button onclick="verifyEmailOTP()">Verify OTP</button>
+    </div>
+
+
+    <p>Already registered? <a href="login.html">Login here</a>
+    </p>
+  </div>
+
+  <footer class="footer">
+    <a href="about.html">About Us</a> |
+    <a href="services.html">Services</a> |
+    <a href="faq.html">FAQ</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="security.html">Security</a>
+  </footer>
+
+  <script src="js/registe.js"></script>
+
+</body>
+
+</html>

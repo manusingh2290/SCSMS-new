@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="logo 2.png" type="image/x-icon">
+  <link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+  <!-- APPLE / MOBILE -->
+  <link rel="apple-touch-icon" href="logo 2.png">
+
+  <!-- ANDROID / PWA -->
+  <link rel="icon" sizes="192x192" href="logo 2.png">
+  <link rel="icon" sizes="512x512" href="logo 2.png">
+
+</head>
+
+
+
+<body>
+
+
+
+  <h2>Admin Dashboard</h2>
+
+
+
+  <h3>🟡 Active Complaints</h3>
+  <ul id="active"></ul>
+
+
+
+  <h3 style="cursor:pointer;" onclick="toggleHistory()">
+    🟢 Complaint History (Resolved)
+    <span id="arrow">▼</span>
+  </h3>
+
+
+
+  <ul id="history" style="display:none;"></ul>
+
+
+
+
+  <!-- Notification Bell -->
+  <div id="bell" style="
+  position: fixed;
+  top: 15px;
+  right: 65px;
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 3000;
+" onclick="openNotifications()">
+    🔔
+  </div>
+
+
+
+  <!-- Sliding Notification Panel -->
+  <div id="notificationPanel" style="
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  padding: 15px;
+  z-index: 2500;
+">
+
+
+
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3>Notifications</h3>
+      <span style="cursor:pointer; font-size:20px;" onclick="closeNotifications()">❌</span>
+    </div>
+    <hr>
+    <div id="notificationBody">
+      <ul id="notify"></ul>
+    </div>
+
+  </div>
+
+
+
+
+
+  <hr>
+
+
+
+  <h3>Assign Worker (Active Complaints Only)</h3>
+  <input id="cid" placeholder="Complaint ID">
+
+
+
+  <select id="workerSelect">
+    <option value="">Select Worker</option>
+  </select>
+
+
+
+  <button onclick="assign()">Assign</button>
+
+
+
+
+
+  <hr>
+
+
+
+  <h3>➕ Add New Worker</h3>
+
+
+
+  <input id="wname" placeholder="Worker Name"><br><br>
+  <input id="wemail" placeholder="Worker Email"><br><br>
+  <input id="wpass" type="password" placeholder="Temporary Password"><br><br>
+
+
+
+  <button onclick="addWorker()">Add Worker</button>
+
+
+
+
+  <hr>
+
+
+
+  <h3>👷 Manage Workers</h3>
+  <ul id="workerList"></ul>
+
+
+
+
+  <br><br>
+
+  <hr>
+  <h3>📢 Post City Announcement</h3>
+
+  <input id="annTitle" placeholder="Announcement Title"><br><br>
+
+  <textarea id="annMessage" placeholder="Announcement message"></textarea><br><br>
+
+  <select id="annType">
+    <option value="General">General</option>
+    <option value="Utility">Utility</option>
+    <option value="Emergency">Emergency</option>
+  </select>
+
+  <button onclick="postAnnouncement()">Publish</button>
+
+
+
+
+  <div id="profileIcon" class="top-icon" onclick="toggleProfileMenu()">🙎🏻‍♂️</div>
+
+
+
+  <div id="profileMenu">
+    <div onclick="openProfile()">👤 Profile</div>
+    <div onclick="goToWorkerActivity()">👷 Track Worker Activity</div>
+    <div onclick="logout()">🚪 Logout</div>
+  </div>
+
+
+
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+
+
+  <hr>
+  <h3>💬 Citizen Support Center</h3>
+  <div
+    style="display:flex; height:400px; background:white; border-radius:12px; border:1px solid #ddd; overflow:hidden;">
+    <div style="width:200px; border-right:1px solid #eee; background:#f8f9fa; padding:10px;">
+      <small><b>Active Citizens</b></small>
+      <ul id="active-chats" style="list-style:none; padding:0; margin-top:10px;"></ul>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div id="admin-chat-messages"
+        style="flex:1; padding:20px; overflow-y:auto; background:#fff; display:flex; flex-direction:column; gap:10px;">
+        <p id="chat-placeholder" style="color:#999; text-align:center;">
+          Select a citizen to start chatting
+        </p>
+
+
+
+      </div>
+      <div id="admin-input-area" style="padding:15px; border-top:1px solid #eee; display:none;">
+        <input id="admin-chat-input" placeholder="Type reply..."
+          style="width:70%; padding:10px; border-radius:5px; border:1px solid #ddd;">
+        <button onclick="sendAdminMessage()" style="width:25%; padding:10px;">Send</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="js/admin.js"></script>
+</body>
+
+
+
+</html>

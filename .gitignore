@@ -1,0 +1,23 @@
+# --- Python / AI (civic-ai) ---
+civic-ai/venv/
+civic-ai/__pycache__/
+*.py[cod]
+# Exclude the actual dataset and trained model weights if they are large
+civic-ai/binary_dataset/
+civic-ai/model/
+
+# --- Backend (Node.js) ---
+backend/node_modules/
+backend/.env
+backend/uploads/*
+# Keep the uploads folder but ignore content
+!backend/uploads/.gitkeep
+
+# --- OS / IDE files ---
+.DS_Store
+.vscode/
+.idea/
+
+
+
+npm-debug.log*

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About - SCSMS</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="logo 2.png" type="image/x-icon">
+    <link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+    <!-- APPLE / MOBILE -->
+    <link rel="apple-touch-icon" href="logo 2.png">
+
+    <!-- ANDROID / PWA -->
+    <link rel="icon" sizes="192x192" href="logo 2.png">
+    <link rel="icon" sizes="512x512" href="logo 2.png">
+    
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* EXACT SAME LOGIN BACKGROUND */
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #1e90ff, #00bcd4, #667eea, #764ba2);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            overflow-y: auto;
+            padding: 40px 20px 160px 20px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3)0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1)0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(30, 144, 255, 0.2)0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px)rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px)rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(10px)rotate(240deg);
+            }
+        }
+
+        .container {
+            max-width: clamp(650px, 90vw, 900px);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0 20px;
+        }
+
+        .header h1 {
+            font-size: clamp(2.8rem, 7vw, 4.2rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.9));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(50px, 8vw, 70px);
+            height: 3px;
+            background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.6));
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            gap: clamp(30px, 5vw, 40px);
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: 22px;
+            padding: clamp(35px, 6vw, 45px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            position: relative;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e90ff, #00bcd4);
+        }
+
+        .about-card:nth-child(1)::before {
+            background: linear-gradient(90deg, #1e90ff, #00bcd4);
+        }
+
+        .about-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #00bcd4, #667eea);
+        }
+
+        .about-card:nth-child(3)::before {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .about-card:nth-child(4)::before {
+            background: linear-gradient(90deg, #764ba2, #1e90ff);
+        }
+
+        .about-card:nth-child(5)::before {
+            background: linear-gradient(90deg, #1e90ff, #00bcd4);
+        }
+
+        .about-card:nth-child(6)::before {
+            background: linear-gradient(90deg, #00bcd4, #667eea);
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px rgba(30, 144, 255, 0.25);
+        }
+
+        .about-icon {
+            font-size: clamp(3rem, 7vw, 4rem);
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .about-section-title {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: clamp(1rem, 2.3vw, 1.15rem);
+            color: #444;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .features-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+            color: #555;
+            padding: 12px 18px;
+            background: rgba(30, 144, 255, 0.1);
+            border-radius: 12px;
+            border-left: 4px solid #1e90ff;
+        }
+
+        /* SAME PERFECT FOOTER */
+        .footer {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.98);
+            text-align: center;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(25px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.3);
+            animation: footerFloat 6s ease-in-out infinite;
+            z-index: 9999;
+            max-width: 95vw;
+            white-space: nowrap;
+            overflow: hidden;
+            line-height: 1.2;
+        }
+
+        @keyframes footerFloat {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0px);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .footer a {
+            color: #fff !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            margin: 0 2px !important;
+            padding: 4px 8px !important;
+            border-radius: 16px !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            font-size: 10px !important;
+        }
+
+        .footer a:hover {
+            background: rgba(255, 255, 255, 0.35) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px 140px;
+            }
+
+            .about-card {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                margin-bottom: 40px;
+                padding: 30px 0 15px;
+            }
+
+            .about-card {
+                padding: 25px 20px;
+            }
+
+            .footer {
+                position: relative;
+                bottom: auto;
+                margin: 25px auto 15px;
+                white-space: normal;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <header class="header">
+            <h1>About SCSMS</h1>
+        </header>
+
+        <section class="about-content">
+            <div class="about-card">
+                <span class="about-icon">🏙️</span>
+                <h2 class="about-section-title">Welcome to SCSMS</h2>
+                <p class="about-text">Welcome to Smart City Service Management System (SCSMS) – your one-stop solution
+                    for managing and optimizing urban services in a smart and efficient way. Our platform is designed to
+                    transform traditional city management into a modern, technology-driven ecosystem that ensures
+                    convenience, transparency, and sustainability.</p>
+            </div>
+
+            <div class="about-card">
+                <span class="about-icon">👁️</span>
+                <h2 class="about-section-title">Our Vision</h2>
+                <p class="about-text">To create smarter cities where technology empowers citizens and authorities to
+                    collaborate seamlessly, ensuring better living standards and sustainable urban development.</p>
+            </div>
+
+            <div class="about-card">
+                <span class="about-icon">🚀</span>
+                <h2 class="about-section-title">Our Mission</h2>
+                <p class="about-text">Enhance Service Delivery: Provide a centralized platform for managing essential
+                    city services like waste management, water supply, electricity, transportation, and emergency
+                    services. Empower Citizens: Enable residents to report issues, track service requests, and access
+                    real-time updates with ease. Promote Sustainability: Integrate smart solutions that reduce resource
+                    wastage and improve environmental health.</p>
+            </div>
+
+            <div class="about-card">
+                <span class="about-icon">⭐</span>
+                <h2 class="about-section-title">Why Choose SCSMS?</h2>
+                <div class="features-list">
+                    <div class="feature-item">User-Friendly Interface: Simple and intuitive design for both citizens and
+                        administrators.</div>
+                    <div class="feature-item">Real-Time Monitoring: Track service requests and city operations
+                        instantly.</div>
+                    <div class="feature-item">Data-Driven Decisions: Leverage analytics for better planning and resource
+                        allocation.</div>
+                    <div class="feature-item">Secure & Reliable: Built with robust security protocols to protect user
+                        data.</div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <span class="about-icon">⚙️</span>
+                <h2 class="about-section-title">Key Features</h2>
+                <div class="features-list">
+                    <div class="feature-item">Service Request Management</div>
+                    <div class="feature-item">Complaint Tracking System</div>
+                    <div class="feature-item">Real-Time Notifications</div>
+                    <div class="feature-item">Smart Resource Allocation</div>
+                    <div class="feature-item">Analytics Dashboard for Authorities</div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <span class="about-icon">🤝</span>
+                <h2 class="about-section-title">Join Us in Building Smarter Cities</h2>
+                <p class="about-text">At SCSMS, we believe that technology can make cities more livable, sustainable,
+                    and efficient. Together, let's create a future where urban life is hassle-free and connected.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <a href="login.html">← Back to Login</a>
+    </footer>
+</body>
+
+</html>

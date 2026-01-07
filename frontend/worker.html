@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SCSMS - Worker Dashboard</title>
+  <link rel="stylesheet" href="css/worker.css">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="logo 2.png" type="image/x-icon">
+  <link rel="icon" href="logo 2.png" type="image/png" sizes="32x32">
+
+  <!-- APPLE / MOBILE -->
+  <link rel="apple-touch-icon" href="logo 2.png">
+
+  <!-- ANDROID / PWA -->
+  <link rel="icon" sizes="192x192" href="logo 2.png">
+  <link rel="icon" sizes="512x512" href="logo 2.png">
+
+</head>
+
+<body>
+  <h2>Worker Dashboard</h2>
+
+  <h3 data-icon="🟡">Active Tasks</h3>
+  <ul id="active"></ul>
+
+  <h3 style="cursor:pointer;" onclick="toggleTaskHistory()">
+    🟢 Task History (Resolved)
+    <span id="arrow">▼</span>
+  </h3>
+
+  <ul id="history" style="display:none;"></ul>
+
+
+  <hr>
+
+  <div class="update-form">
+    <h3 data-icon="🔧">Update Task Status (Active Tasks Only)</h3>
+
+    <div class="form-group">
+      <label>Complaint ID</label>
+      <input id="cid" placeholder="Complaint ID">
+    </div>
+
+    <div class="form-group">
+      <label>Completion Photo</label>
+      <input type="file" id="completionPhoto">
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <select id="status">
+        <option value="Choose">Choose-</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+      </select>
+    </div>
+
+    <button onclick="update()">Update Status</button>
+  </div>
+
+  <!-- Notification Bell -->
+  <div id="bell" style="
+  position: fixed;
+  top: 15px;
+  right: 65px;
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 3000;
+" onclick="openNotifications()">
+    🔔
+  </div>
+
+  <!-- Sliding Notification Panel -->
+  <div id="notificationPanel" style="
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  padding: 15px;
+  z-index: 2500;
+">
+
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3>Notifications</h3>
+      <span style="cursor:pointer; font-size:20px;" onclick="closeNotifications()">❌</span>
+    </div>
+    <div class="notify-body">
+      <ul id="notify"></ul>
+    </div>
+  </div>
+
+  <div id="profileIcon" class="top-icon" onclick="toggleProfileMenu()">🙎🏻‍♂️</div>
+
+  <div id="profileMenu">
+    <div onclick="openProfile()">👤 Profile</div>
+    <div onclick="logout()">🚪 Logout</div>
+  </div>
+
+
+  <script src="js/worker.js"></script>
+</body>
+
+</html>

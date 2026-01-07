@@ -1,0 +1,310 @@
+/* Admin Dashboard Styles - Add to your styles.css or in <style> tags */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2rem;
+  min-height: 100vh;
+  margin: 0;
+}
+
+h2 {
+  color: #007bff;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+}
+
+/* Lists styling */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+ul li {
+  background: white;
+  margin: 0.5rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-left: 5px solid #007bff;
+  transition: all 0.3s ease;
+}
+
+ul li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Form Section */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #007bff, transparent);
+  margin: 3rem 0;
+}
+
+#cid {
+  width: 250px;
+  padding: 12px 16px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+#cid:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+/* Select styling */
+#workerSelect {
+  padding: 12px 16px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  min-width: 200px;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+#workerSelect:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+/* Buttons */
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:first-of-type {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+}
+
+button:first-of-type:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+}
+
+button:nth-of-type(2) {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  color: white;
+}
+
+button:nth-of-type(2):hover {
+  background: linear-gradient(135deg, #1e7e34, #155724);
+}
+
+button:last-of-type {
+  background: linear-gradient(135deg, #6c757d, #545b62);
+  color: white;
+}
+
+button:last-of-type:hover {
+  background: linear-gradient(135deg, #545b62, #3d4044);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  #cid, #workerSelect {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+  
+  button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Status indicators for lists */
+#active li {
+  border-left-color: #ffc107;
+}
+
+#history li {
+  border-left-color: #28a745;
+}
+
+#notify li {
+  border-left-color: #17a2b8;
+  background: linear-gradient(135deg, #f8f9ff, white);
+}
+
+
+#profileIcon {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 3000;
+}
+
+#profileMenu {
+  position: fixed;
+  top: 55px;
+  right: 20px;
+  width: 220px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 3000;
+}
+
+#profileMenu div {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+#profileMenu div:hover {
+  background: #f5f5f5;
+}
+
+#profileMenu div:last-child {
+  border-bottom: none;
+  color: #d32f2f;
+}
+
+
+.top-icon {
+  position: fixed;
+  top: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 3000;
+}
+
+#profileIcon { right: 20px; }
+#bell { right: 65px; }
+
+/* Hidden state */
+.hidden {
+  display: none !important;
+}
+
+/* ================= FIX NOTIFICATION SCROLL ================= */
+
+/* Prevent panel from scrolling */
+#notificationPanel {
+  overflow: hidden;
+}
+
+/* Scrollable content */
+#notificationBody {
+  height: calc(100vh - 170px); /* header + padding + close btn */
+  overflow-y: auto;
+  padding-bottom: 30px; /* 🔥 KEY: prevents last item cut */
+  box-sizing: border-box;
+}
+
+/* Remove default ul spacing */
+#notify {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Space between notifications */
+#notify li {
+  margin-bottom: 12px;
+}
+
+/* Smooth scrollbar */
+#notificationBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+#notificationBody::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e90ff, #00bcd4);
+  border-radius: 10px;
+}
+
+#notificationBody::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.chat-date {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin: 12px 0;
+}
+
+.chat-bubble {
+  max-width: 75%;
+  padding: 8px 12px;
+  border-radius: 15px;
+  margin: 6px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-bubble.me {
+  align-self: flex-end;
+  background: #28a745;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble.other {
+  align-self: flex-start;
+  background: #e9ecef;
+  color: black;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-time {
+  font-size: 10px;
+  text-align: right;
+  opacity: 0.7;
+  margin-top: 4px;
+}

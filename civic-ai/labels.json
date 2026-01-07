@@ -1,0 +1,10 @@
+{
+    "drainage": 0,
+    "fallen_tree": 1,
+    "garbage": 2,
+    "illegal_dumping": 3,
+    "pothole": 4,
+    "road_damage": 5,
+    "street_light": 6,
+    "water_leak": 7
+}
