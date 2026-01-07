@@ -277,7 +277,7 @@ function toggleProfileMenu() {
 
 /* ================= ADMIN LIVE CHAT ================= */
 
-const socket = io("http://localhost:3000");
+const socket = io("https://scsms-backend.onrender.com");
 let activeRoom = "";
 
 /* ===== LOAD EXISTING ACTIVE CHATS ON PAGE LOAD ===== */

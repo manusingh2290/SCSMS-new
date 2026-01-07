@@ -250,7 +250,7 @@ function logout() {
 }
 
 /* ================= LIVE CHAT ================= */
-const socket = io("http://localhost:3000");
+const socket = io("https://scsms-backend.onrender.com");
 
 socket.on("connect", () => {
   socket.emit("join_chat", `citizen_${user.id}`);
