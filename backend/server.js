@@ -4,6 +4,13 @@ const db = require("./db");
 const multer = require("multer");
 const path = require("path");
 
+const fs = require("fs");
+
+const uploadDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+
 
 const http = require("http"); // Added
 const { Server } = require("socket.io"); // Added
@@ -560,8 +567,14 @@ app.put(
       `,
       [status, photo, id, worker_name, status, status],
       (err, r) => {
-        if (r.affectedRows === 0)
-          return res.status(403).json({ error: "Invalid transition" });
+        if (!r) {
+  return res.status(500).json({ error: "Database operation failed" });
+}
+
+if (r.affectedRows === 0) {
+  return res.status(403).json({ error: "Invalid transition" });
+}
+
 
         // 🔔 Only when RESOLVED
         if (status === "Resolved") {
