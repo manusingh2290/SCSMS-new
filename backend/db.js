@@ -7,13 +7,13 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   ssl: {
-    rejectUnauthorized: true
+    rejectUnauthorized: false
   }
 });
 
 db.connect((err) => {
   if (err) {
-    console.error("❌ MySQL connection error:", err);
+    console.error("❌ MySQL connection error:", err.code, err.message);
     return;
   }
   console.log("✅ Connected to Aiven MySQL Database");
