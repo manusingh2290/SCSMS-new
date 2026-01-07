@@ -6,6 +6,9 @@ const path = require("path");
 
 const fs = require("fs");
 
+const { Resend } = require("resend");
+
+
 const uploadDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
@@ -22,13 +25,16 @@ const io = new Server(server, {
 })
 
 const { execFile } = require("child_process");
-const nodemailer = require("nodemailer");
+
 
 const verifiedEmails = new Set();
 
 require("dotenv").config();
 
 const rateLimit = require("express-rate-limit");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 /* ================= RATE LIMIT HELPERS ================= */
 
@@ -92,16 +98,6 @@ app.use(express.json());
 
 
 app.use(ipLimiter);
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-
-});
-
 
 
 
@@ -204,38 +200,40 @@ app.post("/register-citizen", authLimiter, (req, res) => {
 
 
 
-app.post("/auth/send-email-otp", authLimiter, (req, res) => {
+app.post("/auth/send-email-otp", authLimiter, async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ error: "Email required" });
 
   const otp = generateOTP();
   const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
 
+  // Save OTP
   db.query(
     "INSERT INTO otp_verifications (email, otp, expires_at) VALUES (?,?,?)",
     [email, otp, expiresAt]
   );
 
-  transporter.sendMail({
-    from: "SCSMS <singhdaleep8642@gmail.com>",
-    to: email,
-    subject: "SCSMS Email Verification OTP",
-    html: `
-    <h2>SCSMS Verification</h2>
-    <p>Your OTP is:</p>
-    <h1>${otp}</h1>
-    <p>Valid for 5 minutes</p>
-  `
-  }, (err, info) => {
-    if (err) {
-      console.error("MAIL ERROR:", err);
-      return res.status(500).json({ error: "OTP send failed" });
-    }
+  try {
+    await resend.emails.send({
+      from: "SCSMS <onboarding@resend.dev>",
+      to: email,
+      subject: "SCSMS Email Verification OTP",
+      html: `
+        <h2>SCSMS Verification</h2>
+        <p>Your OTP is:</p>
+        <h1>${otp}</h1>
+        <p>Valid for 5 minutes</p>
+      `
+    });
 
-    console.log("MAIL SENT:", info.response);
     res.json({ message: "OTP sent to email" });
-  });
+
+  } catch (err) {
+    console.error("RESEND ERROR:", err);
+    res.status(500).json({ error: "OTP send failed" });
+  }
 });
+
 
 
 
