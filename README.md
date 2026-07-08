@@ -35,7 +35,7 @@ civic-ai/ → AI-related features
 Setup Instructions
 
 1. Clone the repository
-    git clone https://github.com/your-username/SCSMS-new
+    git clone https://github.com/manusingh2290/SCSMS-new
 2. Navigate to project directory
     cd SCSMS-new
 3. Install dependencies
